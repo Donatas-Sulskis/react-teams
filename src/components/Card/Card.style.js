@@ -21,13 +21,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Success = styled.h2`
-  color: rgb(0, 128, 0);
-  text-align: center;
-  width: 100%;
-`;
-
-export const VotingError = styled.span`
+export const VotingError = styled.h2`
   color: rgb(255, 0, 0);
   text-align: center;
   width: 100%;

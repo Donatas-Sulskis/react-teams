@@ -5,9 +5,8 @@ import * as S from "./Card.style";
 
 const Card = () => {
   const [data, setData] = useState([]);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [votingError, setVotingError] = useState("");
+  const [error, setError] = useState();
+  const [votingError, setVotingError] = useState();
 
   const initialMount = useRef(true);
 
@@ -59,12 +58,12 @@ const Card = () => {
         }
       )
       .then((res) => {
-        if (res.data.msg !== undefined) {
-          setSuccess(res.data.msg);
+        if (res.status === 200) {
+          setVotingError("");
         }
       })
       .catch((e) => {
-        if (e.response === undefined) {
+        if (e.response === undefined || e.response.data.error.includes("not")) {
           setVotingError("Unexpected error occurred.");
         }
       });
@@ -81,11 +80,7 @@ const Card = () => {
           },
         }
       )
-      .then((res) => {
-        if (res.data.msg !== undefined) {
-          setSuccess(res.data.msg);
-        }
-      })
+      .then((res) => {})
       .catch((e) => {
         if (e.response === undefined) {
           setVotingError("Unexpected error occurred.");
@@ -95,9 +90,7 @@ const Card = () => {
 
   return (
     <S.Container>
-      <S.Success>
-        {success || <S.VotingError>{votingError}</S.VotingError>}
-      </S.Success>
+      <S.VotingError>{votingError}</S.VotingError>
       {data.length <= 0 ? (
         <S.Error>{error}</S.Error>
       ) : (

@@ -11,7 +11,7 @@ export const Success = styled.h2`
   text-align: center;
 `;
 
-export const Error = styled.span`
+export const Error = styled.h2`
   color: rgb(255, 0, 0);
   text-align: center;
 `;
