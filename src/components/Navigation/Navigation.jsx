@@ -4,7 +4,7 @@ import * as S from "./Navigation.style";
 const Navigation = () => {
   return (
     <S.Navigation>
-      <S.StyledLink to="/dashboard">
+      <S.StyledLink to="https://react-teams-38zlh.ondigitalocean.app/dashboard">
         <S.Image
           src="https://i.ibb.co/cJyYc9z/kisspng-201718-uefa-champions-league-2018-uefa-champion-liga-champion-5b47ce349eb491-242549231531432.png"
           alt="company logo"
@@ -39,7 +39,7 @@ const Navigation = () => {
                 localStorage.removeItem("user");
                 // eslint-disable-next-line no-restricted-globals
                 location.replace(
-                  "https://react-teams-back-26lbx.ondigitalocean.app/login"
+                  "https://react-teams-38zlh.ondigitalocean.app/login"
                 );
               }}
             >

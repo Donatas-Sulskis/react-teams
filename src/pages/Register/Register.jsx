@@ -9,7 +9,7 @@ const Register = () => {
     <>
       {localStorage.getItem("user")
         ? location.replace(
-            "https://react-teams-back-26lbx.ondigitalocean.app/dashboard"
+            "https://react-teams-38zlh.ondigitalocean.app/dashboard"
           )
         : ""}
       <Hero children="Sign Up" />

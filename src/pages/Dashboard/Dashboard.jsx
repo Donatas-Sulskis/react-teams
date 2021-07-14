@@ -6,7 +6,7 @@ import Card from "../../components/Card/Card";
 
 const Dashboard = () => {
   if (!localStorage.getItem("user")) {
-    location.replace("http://localhost:3000/login");
+    location.replace("https://react-teams-38zlh.ondigitalocean.app/login");
   }
   return (
     <>

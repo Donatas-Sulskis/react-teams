@@ -38,7 +38,7 @@ const Form = ({ button, path }) => {
           if (res.data.msg.includes("logged")) {
             // eslint-disable-next-line no-restricted-globals
             location.replace(
-              "https://react-teams-back-26lbx.ondigitalocean.app/dashboard"
+              "https://react-teams-38zlh.ondigitalocean.app/dashboard"
             );
           }
 
