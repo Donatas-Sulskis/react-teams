@@ -38,7 +38,9 @@ const Navigation = () => {
               onClick={() => {
                 localStorage.removeItem("user");
                 // eslint-disable-next-line no-restricted-globals
-                location.replace("http://localhost:3000/login");
+                location.replace(
+                  "https://react-teams-back-26lbx.ondigitalocean.app/login"
+                );
               }}
             >
               Logout

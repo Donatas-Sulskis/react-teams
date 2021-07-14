@@ -23,10 +23,13 @@ const Form = ({ button, path }) => {
   useEffect(() => {
     if (didMount)
       axios
-        .post(`http://localhost:8080/auth/${path}`, {
-          email: email,
-          password: password,
-        })
+        .post(
+          `https://react-teams-back-26lbx.ondigitalocean.app/auth/${path}`,
+          {
+            email: email,
+            password: password,
+          }
+        )
         .then((res) => {
           if (res.data.token) {
             localStorage.setItem("user", res.data.token);
@@ -34,7 +37,9 @@ const Form = ({ button, path }) => {
 
           if (res.data.msg.includes("logged")) {
             // eslint-disable-next-line no-restricted-globals
-            location.replace("http://localhost:3000/dashboard");
+            location.replace(
+              "https://react-teams-back-26lbx.ondigitalocean.app/dashboard"
+            );
           }
 
           setMessage(res.data.msg);

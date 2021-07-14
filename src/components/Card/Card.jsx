@@ -1,7 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import PropTypes from "prop-types";
 import * as S from "./Card.style";
 
 const Card = () => {
@@ -17,11 +16,14 @@ const Card = () => {
     if (initialMount.current) {
       initialMount.current = false;
       axios
-        .get("http://localhost:8080/content/teams", {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("user")}`,
-          },
-        })
+        .get(
+          "https://react-teams-back-26lbx.ondigitalocean.app/content/teams",
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("user")}`,
+            },
+          }
+        )
         .then((res) => setData(res.data))
         .catch((e) => {
           if (e.response !== undefined) {
@@ -32,11 +34,14 @@ const Card = () => {
         });
     } else {
       axios
-        .get("http://localhost:8080/content/teams", {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("user")}`,
-          },
-        })
+        .get(
+          "https://react-teams-back-26lbx.ondigitalocean.app/content/teams",
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("user")}`,
+            },
+          }
+        )
         .then((res) => setData(res.data))
         .catch((e) => console.log(e));
     }
@@ -45,7 +50,7 @@ const Card = () => {
   function add(score) {
     axios
       .post(
-        `http://localhost:8080/content/teams/add/${score}`,
+        `https://react-teams-back-26lbx.ondigitalocean.app/content/teams/add/${score}`,
         {},
         {
           headers: {
@@ -68,7 +73,7 @@ const Card = () => {
   function remove(score) {
     axios
       .post(
-        `http://localhost:8080/content/teams/remove/${score}`,
+        `https://react-teams-back-26lbx.ondigitalocean.app/content/teams/remove/${score}`,
         {},
         {
           headers: {
@@ -79,7 +84,6 @@ const Card = () => {
       .then((res) => {
         if (res.data.msg !== undefined) {
           setSuccess(res.data.msg);
-          localStorage.setItem("voted", "true");
         }
       })
       .catch((e) => {

@@ -8,7 +8,9 @@ const Register = () => {
   return (
     <>
       {localStorage.getItem("user")
-        ? location.replace("http://localhost:3000/dashboard")
+        ? location.replace(
+            "https://react-teams-back-26lbx.ondigitalocean.app/dashboard"
+          )
         : ""}
       <Hero children="Sign Up" />
       <Form button="Sign Up" path="register" />
